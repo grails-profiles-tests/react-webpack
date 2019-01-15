@@ -104,7 +104,7 @@ task cloneRepos {
 task fixTests {
   ext {
     appFolders = [
-            'react-webpack',
+            'multi/react-webpack',
     ]
     appPackage = 'demo'
     unitTestFolder = 'src/test/groovy/'
