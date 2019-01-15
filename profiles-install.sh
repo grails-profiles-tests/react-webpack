@@ -39,6 +39,6 @@ sdk use grails dev
 
 grails --version
 
-grails create-app demo.react-webpack -profile=react-webpack
+grails create-app demo.react-webpack --profile=react-webpack
 
 exit $EXIT_STATUS
