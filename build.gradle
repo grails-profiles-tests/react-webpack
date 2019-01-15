@@ -12,6 +12,7 @@ ext {
           'base',
           'web',
           'webpack',
+          'react-webpack',
   ]
 }
 
@@ -72,6 +73,15 @@ task publishWebpackProfileToMavenLocal(type: GradleBuild) {
   tasks = ['publishToMavenLocal']
 }
 
+task publishReactWebpackProfileToMavenLocal(type: GradleBuild) {
+  dependsOn cloneProfiles
+  ext {
+    profileName = 'react-webpack'
+  }
+  buildFile = "${buildDir}/${profileName}/build.gradle"
+  tasks = ['publishToMavenLocal']
+}
+
 task publishGrailsCoreToMavenLocal(type: GradleBuild) {
   dependsOn cloneGrailsCore
   buildFile = "${buildDir}/grails-core/build.gradle"
@@ -81,6 +91,7 @@ task publishGrailsCoreToMavenLocal(type: GradleBuild) {
 task publishReposToMavenLocal {
   dependsOn publishBaseProfileToMavenLocal
   dependsOn publishWebProfileToMavenLocal
+  dependsOn publishReactWebpackProfileToMavenLocal
   dependsOn publishWebpackProfileToMavenLocal
   dependsOn publishGrailsCoreToMavenLocal
 }
